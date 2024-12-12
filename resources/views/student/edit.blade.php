@@ -21,18 +21,19 @@
                     @csrf
                 </form>
 
-                <form action="{{ route('student.update', [$student]) }}" class="mt-6 grid gap-4 space-y-6 lg:grid-cols-2"
-                    method="post">
+                <form action="{{ route('student.update', [$student]) }}" method="post">
                     @csrf
                     @method('patch')
-                    <div>
-                        <x-input-label :value="__('Name')" for="name" />
-                        <x-text-input :value="old('name', $student->user->name)" autocomplete="name" autofocus class="mt-1 block w-full"
-                            id="name" name="name" required type="text" />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    <div class="mt-6 grid gap-4 space-y-6 lg:grid-cols-2">
+                        <div>
+                            <x-input-label :value="__('Name')" for="name" />
+                            <x-text-input :value="old('name', $student->user->name)" autocomplete="name" autofocus class="mt-1 block w-full"
+                                id="name" name="name" required type="text" />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
                     </div>
 
-                    <div>
+                    <div class="mt-6 grid gap-6 lg:grid-cols-2">
 
                         @if ($student->user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$student->user->hasVerifiedEmail())
                             <div>
@@ -53,43 +54,43 @@
                                 @endif
                             </div>
                         @endif
+
+                        <div>
+                            <x-input-label :value="__('Sex')" for="sex" />
+                            <select class="border-1 mt-1 w-full rounded-md" id="sex" name="sex">
+                                <option {{ $student->sex == 'male' ? 'selected' : '' }} value="male">Male</option>
+                                <option {{ $student->sex == 'female' ? 'selected' : '' }} value="female">Female</option>
+                            </select>
+                            <x-input-error :messages="$errors->get('age')" class="mt-2" />
+                        </div>
+
+                        <div>
+                            <x-input-label :value="__('Age')" for="age" />
+                            <x-text-input :value="old('age', $student->age)" autocomplete="age" class="mt-1 block w-full" id="age"
+                                name="age" required type="number" />
+                            <x-input-error :messages="$errors->get('age')" class="mt-2" />
+                        </div>
+                        <div>
+                            <x-input-label :value="__('Address')" for="address" />
+                            <x-text-input :value="old('address', $student->address)" autocomplete="address" class="mt-1 block w-full"
+                                id="address" name="address" required type="text" />
+                            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                        </div>
+                        <div>
+                            <x-input-label :value="__('Course')" for="course" />
+                            <x-text-input :value="old('address', $student->course)" autocomplete="course" class="mt-1 block w-full"
+                                id="course" name="course" required type="text" />
+                            <x-input-error :messages="$errors->get('course')" class="mt-2" />
+                        </div>
+                        <div>
+                            <x-input-label :value="__('Year')" for="year" />
+                            <x-text-input :value="old('year', $student->year)" autocomplete="year" class="mt-1 block w-full"
+                                id="year" name="year" required type="number" />
+                            <x-input-error :messages="$errors->get('year')" class="mt-2" />
+                        </div>
                     </div>
 
-                    <div>
-                        <x-input-label :value="__('Sex')" for="sex" />
-                        <select class="border-1 mt-1 w-full rounded-md" id="sex" name="sex">
-                            <option {{ $student->sex == 'male' ? 'selected' : '' }} value="male">Male</option>
-                            <option {{ $student->sex == 'female' ? 'selected' : '' }} value="female">Female</option>
-                        </select>
-                        <x-input-error :messages="$errors->get('age')" class="mt-2" />
-                    </div>
-
-                    <div>
-                        <x-input-label :value="__('Age')" for="age" />
-                        <x-text-input :value="old('age', $student->age)" autocomplete="age" class="mt-1 block w-full" id="age"
-                            name="age" required type="number" />
-                        <x-input-error :messages="$errors->get('age')" class="mt-2" />
-                    </div>
-                    <div>
-                        <x-input-label :value="__('Address')" for="address" />
-                        <x-text-input :value="old('address', $student->address)" autocomplete="address" class="mt-1 block w-full" id="address"
-                            name="address" required type="text" />
-                        <x-input-error :messages="$errors->get('address')" class="mt-2" />
-                    </div>
-                    <div>
-                        <x-input-label :value="__('Course')" for="course" />
-                        <x-text-input :value="old('address', $student->course)" autocomplete="course" class="mt-1 block w-full" id="course"
-                            name="course" required type="text" />
-                        <x-input-error :messages="$errors->get('course')" class="mt-2" />
-                    </div>
-                    <div>
-                        <x-input-label :value="__('Year')" for="year" />
-                        <x-text-input :value="old('year', $student->year)" autocomplete="year" class="mt-1 block w-full" id="year"
-                            name="year" required type="number" />
-                        <x-input-error :messages="$errors->get('year')" class="mt-2" />
-                    </div>
-
-                    <div class="col-span-2 flex items-center justify-center gap-4">
+                    <div class="col-span-2 flex items-center justify-center gap-4 mt-6">
                         <x-primary-button>{{ __('Update') }}</x-primary-button>
 
                         @if (session('status') === 'profile-updated')

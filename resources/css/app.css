@@ -14,7 +14,7 @@
         @apply p-4 ;
     }
     table tr {
-        @apply hover:bg-blue-400;
+        @apply hover:bg-blue-200;
     }
 
     .danger-button {

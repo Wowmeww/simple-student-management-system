@@ -17,7 +17,7 @@
                         </p>
                     </div>
                     @can('update', App\Models\User::class)
-                        <div>
+                        <div class="flex gap-2 flex-wrap content-center" >
                             <a class="info-button" href="{{ route('student.edit', [$student]) }}">Edit</a>
                             <form action="{{ route('student.destroy', [$student]) }}" class="danger-button" method="POST">
                                 @csrf

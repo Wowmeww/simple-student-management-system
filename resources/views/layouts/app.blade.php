@@ -32,7 +32,7 @@
             <!-- Page Content -->
             <main>
                 @session('message')
-                    <div class="w-full bg-blue-700/60 p-7">
+                    <div class="w-full bg-blue-300 p-7">
                         <div class="container m-auto flex content-center justify-between">
                             <p>
                                 {{ request()->session()->get('message') }}

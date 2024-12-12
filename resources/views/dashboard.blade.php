@@ -8,7 +8,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div>
                 <h2 class="mb-2 text-2xl font-bold">Users</h2>
-                <table>
+                <table class="table-responsive" >
                     <thead>
                         <tr>
                             <th>Name</th>
