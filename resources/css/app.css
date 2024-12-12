@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    table {
+        @apply bg-blue-100 rounded-lg overflow-hidden table container m-auto text-gray-800;
+    }
+    table th {
+        @apply bg-blue-600 p-4 font-semibold;
+    }
+    table td {
+        @apply p-4 ;
+    }
+    table tr {
+        @apply hover:bg-blue-400;
+    }
+
+    .danger-button {
+        @apply inline-block px-3 py-1 font-semibold bg-red-500 hover:bg-opacity-50 rounded-lg;
+    }
+    .info-button  {
+        @apply inline-block px-3 py-1 font-semibold bg-yellow-500 hover:bg-opacity-50 rounded-lg;
+    }
+    .primary-button  {
+        @apply inline-block px-3 py-1 font-semibold bg-blue-500 hover:bg-opacity-50 rounded-lg;
+    }
+}
