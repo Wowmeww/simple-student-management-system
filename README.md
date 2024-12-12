@@ -1,7 +1,7 @@
 <ul>
     <li>Download folder</li>
     <li>or clone using</li>
-    <li>git clone </li>
+    <li>git clone https://github.com/Wowmeww/simple-student-management-system.git</li>
     <li>need (git, nodeJs, composer)</li>
     <li>open sa VScode</li>
     <li>in powershell oc cmd input</li>
